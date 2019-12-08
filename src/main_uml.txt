@@ -1,0 +1,59 @@
+@startuml
+
+package framework{
+	!include framework/SchedulePlanner.java
+}
+
+package framework.info{
+	!include framework/info/Block.java
+	!include framework/info/BlockType.java
+	!include framework/info/SleepAlgorithm.java
+}
+
+package framework.info.grid{
+	!include framework/info/grid/Schedule.java
+}
+
+package framework.info.gui{
+	!include framework/info/gui/AboutPanel.java
+	!include framework/info/gui/GraphicBlock.java
+	!include framework/info/gui/GraphicSchedule.java
+	!include framework/info/gui/GraphPanel.java
+	!include framework/info/gui/GridPanel.java
+	!include framework/info/gui/StartPanel.java
+	!include framework/info/gui/WakeTimePanel.java
+}
+
+package framework.info.io{
+	!include framework/info/io/ScheduleFileIO.java
+}
+
+package framework.util{
+	!include framework/util/ByteConverter.java
+}
+
+Block *-- BlockType
+Schedule *-- Block
+Schedule --> BlockType
+Schedule <--> SleepAlgorithm
+SchedulePlanner *-- Schedule
+SchedulePlanner --> Block
+SchedulePlanner --> BlockType
+SchedulePlanner --> SleepAlgorithm
+SchedulePlanner --> ScheduleFileIO
+ScheduleFileIO --> Schedule
+ScheduleFileIO --> Block
+ScheduleFileIO --> BlockType
+ScheduleFileIO --> SleepAlgorithm
+ScheduleFileIO --> ByteConverter
+GraphicSchedule *-- AboutPanel
+GraphicSchedule *-- GraphPanel
+GraphicSchedule *-- StartPanel
+GraphicSchedule *-- WakeTimePanel
+GraphicSchedule *-- GridPanel
+GraphicSchedule *-- GraphicBlock
+GridPanel --> BlockType
+GridPanel *-- GraphicBlock
+GraphicBlock *-- Block
+
+@enduml

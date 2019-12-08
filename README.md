@@ -1,8 +1,11 @@
-# Noct-Journal
-Noct-Journal application that is used to help schedule sleep for users at least 8 hours a day
+# noc-journal
 
-Has a UI and a backend
+This program helps you keep your sleep in check by adjusting sleep such that it does not interfere with your schedule.
 
-Created in Java - with a team of 3 other coders that I lead 
+Run GraphicsSchedule to run
 
-We used a Class UML model to create the block diagram for the system 
+REQUIRES Java 8 or higher
+
+Minimum Res: 1280x720
+
+NOTE: when making adjustments/additions to code, please adjust PLANTUML code appropriately.

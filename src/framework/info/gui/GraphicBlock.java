@@ -34,11 +34,12 @@ public class GraphicBlock extends JPanel {
 		setEventDay(d);
 		setBlock(b);
 		
-		trash = new JButton("X");
-		trash.setBounds(0, 0, 45, 20);
+		trash = new JButton("✕");
+		trash.setBounds(4, 4, 36, 20);
 		trash.setToolTipText("Delete this block");
 		GraphicBlock x = this;
 		this.setLayout(null);
+		this.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255, 120), 1));
 		
 		//remove block from schedule and visually
 		trash.addActionListener(new ActionListener(){
@@ -57,8 +58,10 @@ public class GraphicBlock extends JPanel {
 		this.add(trash);
 		
 		nameLabel = new JLabel(getName());
-		nameLabel.setBounds(0, 15, 120, 25);
+		nameLabel.setBounds(0, 20, 120, 25);
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		nameLabel.setForeground(Color.WHITE);
+		nameLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 12));
 		this.add(nameLabel);
 		
 		this.setBackground(getBackgroundColor());
@@ -105,7 +108,7 @@ public class GraphicBlock extends JPanel {
 	@Override
 	public void paintComponent(Graphics g){ //set the color of the block
 		g.setColor(getBackgroundColor());
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+		g.fillRoundRect(0, 0, this.getWidth(), this.getHeight(), 14, 14);
 	}
 	
 	public String getName(){

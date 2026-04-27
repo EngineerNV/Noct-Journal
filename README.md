@@ -1,6 +1,6 @@
 # Noct-Journal: Intelligent Sleep Schedule Management System
 
-[![Java](https://img.shields.io/badge/Java-8%2B-blue.svg)](https://www.oracle.com/java/)
+[![Java](https://img.shields.io/badge/Java-17%2B-blue.svg)](https://www.oracle.com/java/)
 [![License](https://img.shields.io/badge/License-Educational-green.svg)]()
 [![GUI](https://img.shields.io/badge/GUI-Java%20Swing-orange.svg)]()
 
@@ -45,8 +45,17 @@ The primary goal of Noct-Journal is to solve the common problem of inadequate sl
 
 ## 🛠️ Technology Stack
 
+### ✨ Modern UI refresh
+
+The front end now uses a **modernized Nimbus Swing theme** (no third-party UI dependency) with:
+- Rounded controls and cards
+- Improved dark surfaces for side panels
+- Softer calendar grid colors and typography
+- Smoother event block visuals with rounded corners
+
+
 ### Programming Language & Framework
-- **Java 8+**: Core programming language
+- **Java 17 LTS**: Core programming language runtime
 - **Java Swing**: GUI framework for desktop interface
 - **Java AWT**: Graphics and event handling
 
@@ -131,11 +140,13 @@ For detailed architecture information, see [ARCHITECTURE.md](ARCHITECTURE.md).
 ### System Requirements
 
 - **Operating System**: Windows, macOS, or Linux
-- **Java Runtime Environment**: Java 8 or higher
+- **Java Runtime Environment**: Java 17 or higher
 - **Minimum Screen Resolution**: 1280x720
 - **Recommended RAM**: 512 MB
 
 ### Installation Steps
+
+> Note: Maven builds may be blocked in restricted networks (e.g., HTTP 403 to Maven Central). The `javac` path above is the primary supported workflow.
 
 1. **Clone the repository**:
    ```bash

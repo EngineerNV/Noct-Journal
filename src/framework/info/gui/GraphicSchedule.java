@@ -106,6 +106,7 @@ public class GraphicSchedule {
 		window.setBounds(75, 80, 1105, 720);
 		window.setResizable(false);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.getContentPane().setBackground(ThemeManager.APP_BACKGROUND);
 		
 		JMenuBar menu = new JMenuBar();
 		JMenu file = new JMenu("File");
@@ -159,9 +160,11 @@ public class GraphicSchedule {
 		
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(null);
+		mainPanel.setBackground(ThemeManager.APP_BACKGROUND);
 		
 		gridPanel = new GridPanel(); //holds the grid with the blocks
 		gridPanel.setLayout(null);
+		gridPanel.setBackground(ThemeManager.GRID_BACKGROUND);
 		gridPanel.setPreferredSize(new Dimension(930, 1211));
 		
 		JScrollPane scrollPane = new JScrollPane(gridPanel, 
@@ -173,6 +176,7 @@ public class GraphicSchedule {
 		JPanel buttonPanel = new JPanel(); //holds all the buttons
 		buttonPanel.setBounds(950, 30, 135, 600);
 		buttonPanel.setLayout(null);
+		ThemeManager.styleCard(buttonPanel);
 		
 		scrollPane.getViewport().addChangeListener(new ChangeListener() {
 			@Override
@@ -182,32 +186,30 @@ public class GraphicSchedule {
 		});
 		
 		GridButtonListener bListen = new GridButtonListener();
-		Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 20);
-		
 		sleepButton = new JButton("Sleep");
 		sleepButton.setBounds(5, 55, 125, 65);
-		sleepButton.setFont(font);
+		ThemeManager.styleSidebarButton(sleepButton);
 		sleepButton.addActionListener(bListen);
 		
 		wakeButton = new JButton("Wake");
 		wakeButton.setBounds(5, 160, 125, 65);
-		wakeButton.setFont(font);
+		ThemeManager.styleSidebarButton(wakeButton);
 		wakeButton.addActionListener(bListen);
 		wakeButton.setEnabled(false); //wake is disabled by default
 		
 		statButton = new JButton("Stats");
 		statButton.setBounds(5, 265, 125, 65);
-		statButton.setFont(font);
+		ThemeManager.styleSidebarButton(statButton);
 		statButton.addActionListener(bListen);
 		
 		aboutButton = new JButton("About");
 		aboutButton.setBounds(5, 370, 125, 65);
-		aboutButton.setFont(font);
+		ThemeManager.styleSidebarButton(aboutButton);
 		aboutButton.addActionListener(bListen);
 		
 		optionsButton = new JButton("Options");
 		optionsButton.setBounds(5, 475, 125, 65);
-		optionsButton.setFont(font);
+		ThemeManager.styleSidebarButton(optionsButton);
 		optionsButton.addActionListener(bListen);
 		
 		options.addActionListener(bListen);
@@ -1547,6 +1549,7 @@ public class GraphicSchedule {
 	
 	//start of program
 	public static void main(String[] args){
+		ThemeManager.applyGlobalTheme();
 		GraphicSchedule x = new GraphicSchedule();
 		x.initialize();
 		if(args.length > 0 && args[0].equals("-d")){ //just in case you want to skip the tutorial

@@ -16,16 +16,16 @@ public class GridPanel extends JPanel {
 	//draws basic grid
 	@Override
 	public void paintComponent(Graphics g){
-		g.setColor(Color.WHITE);
+		g.setColor(ThemeManager.GRID_BACKGROUND);
 		g.fillRect(40, 0, this.getWidth(), this.getHeight());
 		
 		//horizontal lines indicating times
-		g.setColor(new Color(230, 230, 230));
+		g.setColor(new Color(221, 226, 235));
 		for (int y = 105; y < this.getHeight(); y += 48)
 			g.drawLine(41, y, this.getWidth()-2, y);
 		
 		//vertical lines separating days
-		g.setColor(Color.GRAY);
+		g.setColor(new Color(178, 186, 201));
 		for (int x = 40; x < this.getWidth(); x += 125)
 			g.drawLine(x, 0, x, this.getHeight());
 
@@ -35,8 +35,8 @@ public class GridPanel extends JPanel {
 		
 		writeDays(g);
 		
-		g.setColor(Color.BLACK);
-		g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
+		g.setColor(new Color(39, 45, 58));
+		g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 		String[] times = {"12AM", "2 AM", "4 AM", "6 AM", "8 AM", "10AM", "12PM", "2 PM", "4 PM", "6 PM",
 				"8 PM", "10PM", "12AM"};
 		
@@ -50,22 +50,22 @@ public class GridPanel extends JPanel {
 	
 	//writes name of days on top
 	public void writeDays(Graphics g){
-		Font font1 = new Font(Font.SANS_SERIF, Font.PLAIN, 30);
-		g.setColor(Color.BLACK);
+		Font font1 = new Font(Font.SANS_SERIF, Font.BOLD, 24);
+		g.setColor(new Color(33, 39, 51));
 		g.setFont(font1);
 		
 		g.drawString("Monday", 48, 40);
 		g.drawString("Tuesday", 170, 40);
 		
-		Font font2 = new Font(Font.SANS_SERIF, Font.PLAIN, 23);
+		Font font2 = new Font(Font.SANS_SERIF, Font.BOLD, 19);
 		g.setFont(font2);
 		g.drawString("Wednesday", 293, 40);
 		
-		Font font3 = new Font(Font.SANS_SERIF, Font.PLAIN, 28);
+		Font font3 = new Font(Font.SANS_SERIF, Font.BOLD, 22);
 		g.setFont(font3);
 		g.drawString("Thursday", 420, 40);
 		
-		Font font4 = new Font(Font.SANS_SERIF, Font.PLAIN, 36);
+		Font font4 = new Font(Font.SANS_SERIF, Font.BOLD, 28);
 		g.setFont(font4);
 		g.drawString("Friday", 554, 40);
 		
@@ -82,13 +82,13 @@ public class GridPanel extends JPanel {
 				GregorianCalendar.THURSDAY, GregorianCalendar.FRIDAY, GregorianCalendar.SATURDAY,
 				GregorianCalendar.SUNDAY};
 		
-		g.setColor(Color.WHITE);
+		g.setColor(ThemeManager.GRID_BACKGROUND);
 		for (int i = 0; i < 7; i++){
 			if (calendar.get(GregorianCalendar.DAY_OF_WEEK) == days[i])
-				g.setColor(Color.RED);
+				g.setColor(new Color(255, 94, 98));
 			
 			g.drawLine(45+(125*i), 48, (45+(125*i))+115, 48);
-			g.setColor(Color.WHITE);
+			g.setColor(ThemeManager.GRID_BACKGROUND);
 		}
 	}
 	
